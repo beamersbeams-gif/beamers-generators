@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEAMER COMMUNITY</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Falling stars background container */
+        body {
+            background-color: #1a0000; /* Very dark red - almost black red */
+            color: #ffffff;
+            padding: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: fall linear infinite;
+            opacity: 0;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10px);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+
+        /* Dark red animated container */
+        .main-container {
+            background: linear-gradient(to bottom, #3d0000, #4a0000); /* Deep dark red gradient */
+            border-radius: 12px;
+            padding: 25px;
+            max-width: 550px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            animation: containerGlow 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes containerGlow {
+            0% {
+                background: linear-gradient(to bottom, #3d0000, #4a0000);
+                box-shadow: 0 0 15px rgba(61, 0, 0, 0.5);
+            }
+            100% {
+                background: linear-gradient(to bottom, #4a0000, #3d0000);
+                box-shadow: 0 0 20px rgba(74, 0, 0, 0.8);
+            }
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        /* Dark red Discord button */
+        .discord-link {
+            display: block;
+            width: 100%;
+            padding: 14px 0;
+            background-color: #5a0000; /* Dark red */
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            animation: btnShift 6s ease-in-out infinite alternate;
+            transition: background 0.2s ease;
+        }
+
+        .discord-link:hover {
+            background-color: #6b0000; /* Slightly lighter dark red */
+        }
+
+        .discord-link::before {
+            content: "💬";
+            margin-right: 8px;
+        }
+
+        @keyframes btnShift {
+            0% {
+                background-color: #5a0000;
+            }
+            100% {
+                background-color: #620000;
+            }
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            text-align: center;
+            margin-bottom: 12px;
+            color: #f0f0f0;
+        }
+
+        .support-text {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .button-section {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        /* Dark red action buttons */
+        .action-link {
+            padding: 14px 0;
+            background-color: #300000; /* Very dark red */
+            color: #ffffff;
+            text-align: center;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            animation: actionBtnGlow 7s ease-in-out infinite alternate;
+            transition: background 0.2s ease;
+        }
+
+        .action-link:hover {
+            background-color: #400000; /* Slightly lighter very dark red */
+        }
+
+        @keyframes actionBtnGlow {
+            0% {
+                background-color: #300000;
+            }
+            100% {
+                background-color: #380000;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Falling stars background -->
+    <div class="stars" id="starsContainer"></div>
+
+    <div class="main-container">
+        <h1>BEAMER COMMUNITY</h1>
+
+        <!-- Discord link with new tab label -->
+        <a href="https://discord.gg/AudmURGv9v" class="discord-link" target="_blank" title="1 click to new tab direct to the site">JOIN OUR DISCORD</a>
+
+        <h2>MAIN GENERATOR</h2>
+        <div class="support-text">
+            ✓ TikTok supported<br>
+            ✓ Chrome supported
+        </div>
+
+        <div class="button-section">
+            <!-- All buttons with new tab hover text -->
+            <a href="https://shorturl.asia/eoLap" class="action-link" target="_blank" title="1 click to new tab direct to the site">SPLUNK</a>
+            <a href="https://www.logged.tg/auth/naturals" class="action-link" target="_blank" title="1 click to new tab direct to the site">INJURIES</a>
+            <a href="https://shorturl.asia/ePMJD" class="action-link" target="_blank" title="1 click to new tab direct to the site">SHOCKIFY</a>
+            <a href="https://shorturl.asia/yNnX8" class="action-link" target="_blank" title="1 click to new tab direct to the site">IMMORTAL</a>
+        </div>
+    </div>
+
+    <!-- Script to generate stars -->
+    <script>
+        const starsContainer = document.getElementById('starsContainer');
+        const starCount = 30; // Adjust number of stars here
+
+        function createStar() {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            
+            // Random size (1-3px)
+            const size = Math.random() * 2 + 1;
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            
+            // Random position
+            star.style.left = `${Math.random() * 100}vw`;
+            star.style.top = `${Math.random() * 100}vh`;
+            
+            // Random animation duration (5-15 seconds)
+            const duration = Math.random() * 10 + 5;
+            star.style.animationDuration = `${duration}s`;
+            
+            // Random delay
+            star.style.animationDelay = `${Math.random() * 5}s`;
+            
+            return star;
+        }
+
+        // Add stars to container
+        for (let i = 0; i < starCount; i++) {
+            starsContainer.appendChild(createStar());
+        }
+    </script>
+</body>
+</html>
